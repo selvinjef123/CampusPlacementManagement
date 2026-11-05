@@ -106,15 +106,18 @@ builder.Services.AddAuthentication(options =>
 // 6. Dependency Injection - Helpers
 builder.Services.AddScoped<JwtHelper>();
 
-// 7. Dependency Injection - Repositories
+// Dependency Injection - Repositories
 builder.Services.AddScoped<ICollegeRepository, CollegeRepository>();
 builder.Services.AddScoped<IPlacementOfficerRepository, PlacementOfficerRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<ICompanyHRRepository, CompanyHRRepository>();
 
-// 8. Dependency Injection - Services
+// Dependency Injection - Services
 builder.Services.AddScoped<ICollegeService, CollegeService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPlacementOfficerService, PlacementOfficerService>();
-
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ICompanyHRService, CompanyHRService>();
 // 9. CORS Setup for Frontend
 builder.Services.AddCors(options =>
 {

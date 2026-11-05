@@ -2,13 +2,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
-
 namespace CampusPlacementManagement.API.Data;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
-    // Make sure <ApplicationDbContext> is explicitly defined here:
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
@@ -30,14 +27,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        // ... (Fluent API configurations)
-    
 
-
-// -------------------------------------------------------------
-// ApplicationUser Relationships (1:1 with Profiles)
-// -------------------------------------------------------------
-builder.Entity<PlacementOfficer>()
+        // -------------------------------------------------------------
+        // ApplicationUser Relationships (1:1 with Profiles)
+        // -------------------------------------------------------------
+        builder.Entity<PlacementOfficer>()
             .HasOne(po => po.User)
             .WithOne(u => u.PlacementOfficer)
             .HasForeignKey<PlacementOfficer>(po => po.UserId)
@@ -187,8 +181,11 @@ builder.Entity<PlacementOfficer>()
             .OnDelete(DeleteBehavior.Restrict);
 
         // -------------------------------------------------------------
-        // Application Status History
+        // Application Status History Configuration
         // -------------------------------------------------------------
+        builder.Entity<ApplicationStatusHistory>()
+            .HasKey(ash => ash.HistoryId);
+
         builder.Entity<ApplicationStatusHistory>()
             .HasOne(ash => ash.JobApplication)
             .WithMany(ja => ja.StatusHistories)

@@ -1,9 +1,11 @@
 ﻿using CampusPlacementManagement.API.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace CampusPlacementManagement.API.Models;
 
 public class JobApplication
 {
+    [Key]
     public int ApplicationId { get; set; }
     public int JobId { get; set; }
     public int StudentId { get; set; }

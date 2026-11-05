@@ -1,10 +1,13 @@
-﻿using CampusPlacementManagement.API.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using CampusPlacementManagement.API.Enums;
 
 namespace CampusPlacementManagement.API.Models;
 
 public class ApplicationStatusHistory
 {
+    [Key]
     public int HistoryId { get; set; }
+
     public int ApplicationId { get; set; }
     public ApplicationStatus? PreviousStatus { get; set; }
     public ApplicationStatus NewStatus { get; set; }
