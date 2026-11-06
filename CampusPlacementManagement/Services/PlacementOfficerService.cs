@@ -104,4 +104,22 @@ public class PlacementOfficerService : IPlacementOfficerService
         await _officerRepository.UpdateAsync(officer);
         return true;
     }
+
+    public async Task<PlacementOfficerResponseDto?> GetByUserIdAsync(string userId)
+    {
+        var officer = await _officerRepository.GetByUserIdAsync(userId);
+        if (officer == null) return null;
+
+        return new PlacementOfficerResponseDto
+        {
+            PlacementOfficerId = officer.PlacementOfficerId,
+            UserId = officer.UserId,
+            CollegeId = officer.CollegeId,
+            CollegeName = officer.College?.CollegeName ?? string.Empty,
+            Designation = officer.Designation,
+            Status = officer.Status,
+            ApprovedBy = officer.ApprovedBy,
+            ApprovedAt = officer.ApprovedAt
+        };
+    }
 }

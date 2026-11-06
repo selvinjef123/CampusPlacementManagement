@@ -18,7 +18,7 @@
 		<PackageReference Include="Scalar.AspNetCore" Version="2.19.0" />
 
 		<!-- Force direct secure version for PKCS -->
-		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.2" />
+		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.11" />
 	</ItemGroup>
 
 </Project>
