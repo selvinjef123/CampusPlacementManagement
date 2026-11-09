@@ -1,9 +1,11 @@
 ﻿using CampusPlacementManagement.API.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace CampusPlacementManagement.API.Models;
 
 public class PlacementOfficer
 {
+    [Key]
     public int PlacementOfficerId { get; set; }
     public string UserId { get; set; } = string.Empty;
     public int CollegeId { get; set; }

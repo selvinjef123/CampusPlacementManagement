@@ -112,6 +112,7 @@ builder.Services.AddScoped<IPlacementOfficerRepository, PlacementOfficerReposito
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICompanyHRRepository, CompanyHRRepository>();
 builder.Services.AddScoped<IJobOpeningRepository, JobOpeningRepository>();
+builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 
 // Dependency Injection - Services
 builder.Services.AddScoped<ICollegeService, CollegeService>();
@@ -120,6 +121,7 @@ builder.Services.AddScoped<IPlacementOfficerService, PlacementOfficerService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ICompanyHRService, CompanyHRService>();
 builder.Services.AddScoped<IJobOpeningService, JobOpeningService>();
+builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 // 9. CORS Setup for Frontend
 builder.Services.AddCors(options =>
 {

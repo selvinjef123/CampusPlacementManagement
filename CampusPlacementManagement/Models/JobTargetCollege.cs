@@ -1,7 +1,10 @@
-﻿namespace CampusPlacementManagement.API.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CampusPlacementManagement.API.Models;
 
 public class JobTargetCollege
 {
+    [Key]
     public int JobTargetCollegeId { get; set; }
     public int JobId { get; set; }
     public int CollegeId { get; set; }

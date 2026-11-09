@@ -1,9 +1,11 @@
-﻿using CampusPlacementManagement.API.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using CampusPlacementManagement.API.Enums;
 
 namespace CampusPlacementManagement.API.Models;
 
 public class RecruitmentDrive
 {
+    [Key]
     public int DriveId { get; set; }
     public int JobId { get; set; }
     public int CollegeId { get; set; }

@@ -1,5 +1,6 @@
-﻿using CampusPlacementManagement.API.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using CampusPlacementManagement.API.Enums;
 
 namespace CampusPlacementManagement.API.Models;
 
@@ -7,18 +8,33 @@ public class JobOpening
 {
     [Key]
     public int JobId { get; set; }
+
     public int CompanyId { get; set; }
     public int CreatedByHRId { get; set; }
-    public string JobTitle { get; set; } = string.Empty;
-    public string JobDescription { get; set; } = string.Empty;
-    public string JobType { get; set; } = string.Empty;
+
+    [Required, StringLength(150)]
+    public string Title { get; set; } = string.Empty;
+
+    [Required]
+    public string Description { get; set; } = string.Empty;
+
+    public string? Requirements { get; set; }
+
+    [Required, StringLength(100)]
     public string Location { get; set; } = string.Empty;
-    public decimal? SalaryPackage { get; set; }
-    public decimal? MinimumCGPA { get; set; }
-    public int? MaximumBacklogs { get; set; }
+
+    [Column(TypeName = "decimal(18,2)")]
+    public decimal PackageLPA { get; set; }
+
+    [Column(TypeName = "decimal(3,2)")]
+    public decimal MinCGPA { get; set; }
+
+    public int MaxBacklogs { get; set; }
+
     public DateTime ApplicationDeadline { get; set; }
-    public bool IsOpenToAllColleges { get; set; }
-    public JobStatus Status { get; set; } = JobStatus.Draft;
+
+    public JobOpeningStatus Status { get; set; } = JobOpeningStatus.Active;
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     // Navigation Properties
