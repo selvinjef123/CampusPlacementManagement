@@ -338,6 +338,10 @@ namespace CampusPlacementManagement.Migrations
                     b.Property<DateTime>("AppliedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CoverLetterUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<int>("JobId")
                         .HasColumnType("int");
 
@@ -345,7 +349,8 @@ namespace CampusPlacementManagement.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ResumeUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
